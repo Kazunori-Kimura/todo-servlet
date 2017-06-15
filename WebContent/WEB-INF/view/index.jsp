@@ -7,6 +7,6 @@
 <title>Hello, World!</title>
 </head>
 <body>
-	<%= new java.util.Date() %>
+	<%= request.getAttribute("foo") %>
 </body>
 </html>
