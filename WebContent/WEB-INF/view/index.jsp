@@ -7,11 +7,14 @@
 <title>Hello, World!</title>
 </head>
 <body>
-	<%= request.getAttribute("foo") %>
+	<% String userName = (String)request.getAttribute("userName"); %>
+	こんにちは、<%= userName %> さん！
 
+	<% if ("Guest".equals(userName)) { %>
 	<form method="post" action="./Hello">
-		何か入力して: <input type="text" name="hoge">
+		名前を入力してください: <input type="text" name="name">
 		<button type="submit">送信</button>
 	</form>
+	<% } %>
 </body>
 </html>

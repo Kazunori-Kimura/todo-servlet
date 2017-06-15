@@ -28,7 +28,11 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// JSPに適当な文字列を渡す
-		request.setAttribute("foo", "bar");
+		String name = (String) request.getAttribute("userName");
+
+		if (name == null || "".equals(name)) {
+			request.setAttribute("userName", "Guest");
+		}
 
 		// JSPにforward
 		String view = "/WEB-INF/view/index.jsp";
@@ -41,9 +45,13 @@ public class HelloServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 文字コードを指定
+		request.setCharacterEncoding("utf-8");
 		// formから値を取得
-		String value = request.getParameter("hoge");
-		System.out.println(value);
+		String name = request.getParameter("name");
+
+		// nameをセット
+		request.setAttribute("userName", name);
 
 		doGet(request, response);
 	}
