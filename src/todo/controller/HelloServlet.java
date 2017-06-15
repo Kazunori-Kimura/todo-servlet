@@ -41,7 +41,10 @@ public class HelloServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// formから値を取得
+		String value = request.getParameter("hoge");
+		System.out.println(value);
+
 		doGet(request, response);
 	}
 

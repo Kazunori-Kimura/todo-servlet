@@ -8,5 +8,10 @@
 </head>
 <body>
 	<%= request.getAttribute("foo") %>
+
+	<form method="post" action="./Hello">
+		何か入力して: <input type="text" name="hoge">
+		<button type="submit">送信</button>
+	</form>
 </body>
 </html>
